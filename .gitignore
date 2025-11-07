@@ -1,0 +1,20 @@
+# Python & venv
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.env
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Data & artifacts
+data/
+sql/lib/
+models/*.joblib
+models/*.pkl
+
+# Editor
+.vscode/
+.idea/
