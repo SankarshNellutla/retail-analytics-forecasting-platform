@@ -48,7 +48,7 @@ DB_USER = os.getenv("DB_USER")  # required
 DB_PASS = os.getenv("DB_PASS")  # required
 PG_JDBC_JAR = os.getenv(
     "PG_JDBC_JAR",
-    "/Users/sankarshnellutla/Desktop/Vscode/Projects/superstore/sql/lib/postgresql-42.7.8.jar"
+    "/Users/sankarshnellutla/Desktop/Vscode/Projects/retail-analytics-forecasting-platform/sql/lib/postgresql-42.7.8.jar"
 )
 
 # target staging table (schema-qualified)

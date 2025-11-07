@@ -31,7 +31,7 @@ load_dotenv()
 JDBC_URL = os.getenv("JDBC_URL")
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
-PG_JDBC_JAR = os.getenv("PG_JDBC_JAR", "/Users/sankarshnellutla/Desktop/Vscode/Projects/superstore/sql/lib/postgresql-42.7.8.jar")
+PG_JDBC_JAR = os.getenv("PG_JDBC_JAR", "/Users/sankarshnellutla/Desktop/Vscode/Projects/retail-analytics-forecasting-platform/sql/lib/postgresql-42.7.8.jar")
 
 # Source and target table names (schema-qualified)
 RAW_TABLE = "stg.stg_superstore_raw"
