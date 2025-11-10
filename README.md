@@ -274,10 +274,22 @@ And analyze with your favorite SQL tool.
 
 ---
 
-## Tableau Dashboards
+## Dashboard
 
-- Find sample Tableau dashboards/diagram screenshots in `Images/`.
-- Example metrics: YoY sales, profit by region, moving averages, top customer/product, and RFM segmentation.
+Built in Tableau. Includes
+
+- Year over year sales percent
+- Sales trends with moving average and count
+- Profit heat map
+- Top customers and top 10 bar chart
+- RFM matrix
+
+A screenshot is in Images.
+
+## Example Interactive Dashboard
+
+![Retail Analytics Dashboard](Images/retail_sales_analytics_dashboard.jpeg)
+*Figure: Example Tableau dashboard with retail sales KPIs and visualizations*
 
 ---
 
