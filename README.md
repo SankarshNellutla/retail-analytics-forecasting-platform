@@ -23,7 +23,7 @@ Table of Contents
 Project Overview
 ----------------
 
-This repository contains a complete data engineering and analytics solution for retail sales.  It uses the Kaggle Superstore dataset, which records orders, customers, products, and financial transactions for a fictional retail company.  The dataset includes nearly ten thousand rows and nineteen fields covering order dates, shipment dates, customer and product identifiers, sales, quantity, discounts and profits.  The objective is to clean and model this data, expose it through a star schema warehouse, analyse it through dashboards and predictive models, and allow ad hoc questions via a simple chatbot.
+This repository contains a complete data engineering and analytics solution for retail sales.  It uses the Kaggle Superstore dataset, which records orders, customers, products, and financial transactions for a fictional retail company.  The dataset includes nearly ten thousand rows and nineteen fields covering order dates, shipment dates, customer and product identifiers, sales, quantity, discounts and profits【941765044199307†screenshot】.  The objective is to clean and model this data, expose it through a star schema warehouse, analyse it through dashboards and predictive models, and allow ad hoc questions via a simple chatbot.
 
 Goals
 -----
@@ -92,18 +92,18 @@ Analytics and Visualization
 
 The final star schema enables rich analytics.  Example dashboards include:
 
-- Sales summary – aggregate sales, profit and quantity by month or quarter.  Visualize trends and seasonality.
-- Customer insights – break down sales and profit by customer segments (Consumer, Corporate, Home Office) and identify top customers.
-- Product performance – compare categories and sub-categories and identify high-margin products.
-- Regional analysis – evaluate sales and profitability by region, state and city.
-- Order pipeline – monitor order counts, average discount and shipping delays over time.
+- **Sales summary** – aggregate sales, profit and quantity by month or quarter.  Visualize trends and seasonality.
+- **Customer insights** – break down sales and profit by customer segments (Consumer, Corporate, Home Office) and identify top customers.
+- **Product performance** – compare categories and sub-categories and identify high-margin products.
+- **Regional analysis** – evaluate sales and profitability by region, state and city.
+- **Order pipeline** – monitor order counts, average discount and shipping delays over time.
 
 These dashboards can be built in Power BI or Tableau using the fact and dimension tables.  Because the warehouse uses a star schema, analysts can slice and dice metrics across any combination of dimensions.
 
 Machine Learning Forecasting
 ---------------------------
 
-To forecast future sales at the product or month grain, the project includes a regression model built with scikit-learn.  The pipeline aggregates fact table data into monthly product sales, encodes product and category features and trains a ridge regression model.  Ridge regression adds an L2 penalty term to the ordinary least squares objective, shrinking coefficients and helping reduce over-fitting, especially when predictors are correlated.
+To forecast future sales at the product or month grain, the project includes a regression model built with scikit-learn.  The pipeline aggregates fact table data into monthly product sales, encodes product and category features and trains a ridge regression model.  Ridge regression adds an L2 penalty term to the ordinary least squares objective, shrinking coefficients and helping reduce over-fitting, especially when predictors are correlated【941765044199307†screenshot】.
 
 Workflow
 --------
@@ -126,7 +126,7 @@ Example metrics
 | R²         | 0.72          |
 
 GenAI-Powered Chatbot
----------------------
+----------------------
 
 The project includes a minimal retrieval augmented chatbot that allows business users to ask natural language questions and receive answers backed by SQL queries.  The chatbot uses:
 
@@ -148,3 +148,73 @@ Next Steps
 Repository Structure
 --------------------
 
+```
+src/
+  etl/
+    extract.py             # read and clean raw CSV into stg.stg_superstore_raw
+    transform_stage.py     # convert raw staging into typed staging tables
+    transform_load_final.py# upsert dimensions and load fact_sales
+  profiling/
+    profile_superstore.py  # basic profiling of the CSV
+sql/
+  ddl_staging.sql            # create staging schema and tables
+  ddl_superstore_final.sql   # create final star-schema tables and helper views
+notebooks/
+  ml.ipynb                   # ridge regression model training and forecasting
+  chatbot.ipynb              # simple GenAI chatbot demo
+models/                      # saved model artefacts
+images/                      # diagrams and dashboard screenshots
+data/                        # placeholder – store CSV locally (never commit)
+README.md (this file)
+```
+
+Getting Started
+---------------
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/SankarshNellutla/retail-analytics-forecasting-platform.git
+   cd retail-analytics-forecasting-platform
+   ```
+
+2. Set up the environment:
+
+   - Install Python 3.9 or newer and create a virtual environment.
+   - Copy `.env.example` to `.env` and provide values for `CSV_PATH`, `JDBC_URL`, `DB_USER`, `DB_PASS`, `PG_JDBC_JAR` and `DB_URL`.
+   - Install dependencies:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. Run the ETL pipeline:
+
+   Ensure that PostgreSQL is running and the `superstore` database exists.
+
+   ```bash
+   # create schemas and tables
+   psql -f sql/ddl_staging.sql -d superstore
+   psql -f sql/ddl_superstore_final.sql -d superstore
+
+   # extract raw CSV into staging
+   python src/etl/extract.py
+
+   # transform raw staging into typed staging
+   python src/etl/transform_stage.py
+
+   # load typed staging into final warehouse
+   python src/etl/transform_load_final.py
+   ```
+
+4. Train the forecasting model:
+
+   Open `notebooks/ml.ipynb` in Jupyter or Databricks, run the cells to aggregate sales data, train the ridge regression model and evaluate its performance.  The notebook also shows how to use the model to predict next-month sales.
+
+5. Run the chatbot demo:
+
+   Open `notebooks/chatbot.ipynb`, set your OpenAI API key and follow the instructions to ask business questions.  The notebook demonstrates mapping natural language queries to safe SQL templates.
+
+For contribution guidelines and license information, see the **CONTRIBUTING.md** and **LICENSE** files in this repository.
