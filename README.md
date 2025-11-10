@@ -85,6 +85,11 @@ retail-analytics-forecasting-platform/
         └── profile_superstore.py
 ```
 
+## Data Warehouse Star Schema
+
+![Star Schema](Images/DDL_superstore_db.png)
+*Figure: Logical star schema for the retail data warehouse*
+
 ---
 
 ## Quick Start
