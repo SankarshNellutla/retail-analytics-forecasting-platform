@@ -149,23 +149,23 @@ Repository Structure
 --------------------
 
 ```
-src/
-  etl/
-    extract.py             # read and clean raw CSV into stg.stg_superstore_raw
-    transform_stage.py     # convert raw staging into typed staging tables
-    transform_load_final.py# upsert dimensions and load fact_sales
-  profiling/
-    profile_superstore.py  # basic profiling of the CSV
-sql/
-  ddl_staging.sql            # create staging schema and tables
-  ddl_superstore_final.sql   # create final star-schema tables and helper views
-notebooks/
-  ml.ipynb                   # ridge regression model training and forecasting
-  chatbot.ipynb              # simple GenAI chatbot demo
-models/                      # saved model artefacts
-images/                      # diagrams and dashboard screenshots
-data/                        # placeholder – store CSV locally (never commit)
-README.md (this file)
+├── src/etl/  
+│   ├── extract.py  
+│   ├── transform_stage.py  
+│   └── transform_load_final.py  
+├── profiling/  
+│   └── profile_superstore.py  
+├── sql/  
+│   ├── ddl_staging.sql  
+│   └── ddl_superstore_final.sql  
+├── notebooks/  
+│   └── README.md (placeholder for ML and chatbot notebooks)  
+├── models/  
+├── images/  
+├── data/  
+├── README.md  
+├── CONTRIBUTING.md  
+└── LICENSE  
 ```
 
 Getting Started
