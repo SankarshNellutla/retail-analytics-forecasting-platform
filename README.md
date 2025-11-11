@@ -284,9 +284,7 @@ Built in Tableau. Includes
 - Top customers and top 10 bar chart
 - RFM matrix
 
-A screenshot is in Images.
-
-## Example Interactive Dashboard
+## Interactive Dashboard
 
 ![Retail Analytics Dashboard](Images/retail_sales_analytics_dashboard.jpeg)
 *Figure: Example Tableau dashboard with retail sales KPIs and visualizations*
